@@ -1,8 +1,46 @@
-import React from "react";
-import "./App.css";
+import React, { Component } from "react";
+import Day from "./components/Day";
+import "./css/App.css";
 
-function App() {
-  return <div class="App">Calendar</div>;
+class App extends Component {
+  render() {
+    return (
+      <div className="grid-container">
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+        <Day />
+      </div>
+    );
+  }
 }
 
 export default App;
