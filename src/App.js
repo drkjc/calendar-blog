@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Day from "./components/Day";
 import Header from "./components/Header";
 import DayTitles from "./components/DayTitles"
-import "./css/App.css";
+import "./css/App.scss";
 
 class App extends Component {
 
