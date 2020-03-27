@@ -1,0 +1,17 @@
+#dayTitles {
+    position: relative;
+    top: 120px;
+    display: flex;
+    width: 100%;
+
+    .flexContainer {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .dayOfWeek {
+        margin-left: 40px;
+        margin-top: 10px;
+    }
+}

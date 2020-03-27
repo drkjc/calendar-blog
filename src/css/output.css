@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+#app {
+  text-align: center;
+  width: 100%; }
+
+.grid-container {
+  width: 100%;
+  top: 175px;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  position: absolute;
+  margin: 5px 25px; }
+
+/*# sourceMappingURL=output.css.map */
