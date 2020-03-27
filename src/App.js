@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Day from "./components/Day";
 import Header from "./components/Header";
+import DayTitles from "./components/DayTitles"
 import "./css/App.css";
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
     return (
       <div id="app">
         <Header />
+        <DayTitles />
         <div className="grid-container">
          {this.renderCalendar()}
         </div>
