@@ -1,7 +1,6 @@
 .Day {
-  width: 100px;
   height: 100px;
-  padding: 100px;
+  padding: 75px;
   text-align: center;
   border: 1px solid black;
 }

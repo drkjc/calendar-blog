@@ -8,7 +8,7 @@ class App extends Component {
   renderCalendar = () => {
     let days = [];
     for(let i = 1; i < 31; i++) {
-      days.push(<Day id={i} />)
+      days.push(<Day key={i} />)
     }
     return days;
   }
