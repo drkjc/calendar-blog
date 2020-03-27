@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <div id="app">
-        <div><Header /></div>
+        <Header />
         <div className="grid-container">
          {this.renderCalendar()}
         </div>
