@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Day from '../components/Day';
+import DayTitles from "../components/DayTitles"
 
 export default class Calendar extends Component {
 
@@ -16,7 +17,10 @@ export default class Calendar extends Component {
     
     render() {
         return (
+          <div>
+            <DayTitles />
             <div className="grid-container">{this.renderCalendar()}</div>
+          </div>
         )
     }
 }

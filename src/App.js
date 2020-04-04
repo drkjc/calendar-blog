@@ -13,7 +13,6 @@ class App extends Component {
       <Router>
         <div id="app">
             <Header />
-            <DayTitles />
             <Switch>
             <Route exact path="/" render={props => <Calendar {...props} /> } /> 
             <Route exact path="/writer/:id" render={props => <Writer {...props} />}/>
