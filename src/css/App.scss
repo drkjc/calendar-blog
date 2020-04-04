@@ -10,9 +10,7 @@
 }
 
 .grid-container {
-  top: 175px;
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto;
-  position: absolute;
-  margin: 5px 25px;
+  margin: 150px 25px;
 }
