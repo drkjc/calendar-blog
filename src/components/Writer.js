@@ -16,13 +16,17 @@ export default class Writer extends Component {
         console.log(this.state)
     }
 
+    onSubmit = (event) => {
+        alert(this.state)
+    }
+
     render() {
         return (
             <div className="writer">
-                <form>
-                    <label>Title</label><br />
-                    <input type="text" name="title" onChange={this.handleChange} /><br/>
-                    <textarea type="text" name="content" onChange={this.handleChange} />
+                <form onSubmit={this.onSubmit}>
+                    <label>Title</label><button>Post</button><br />
+                    <input id="titleField" type="text" name="title" onChange={this.handleChange} /><br /><br />
+                    <textarea id="contentField" type="text" name="content" onChange={this.handleChange} />
                 </form>
             </div>
         )
