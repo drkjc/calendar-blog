@@ -1,6 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
-import Writer from "./Writer"
+import { Link } from "react-router-dom";
 import "../css/Day.scss";
 
 export default function Day(props) {

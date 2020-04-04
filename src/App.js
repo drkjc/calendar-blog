@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Day from "./components/Day";
 import Header from "./components/Header";
 import DayTitles from "./components/DayTitles"
@@ -23,16 +23,16 @@ class App extends Component {
     return (
       <Router>
         <div id="app">
-          <Header />
-          <DayTitles />
-          <div className="grid-container">
-            {this.renderCalendar()}
-          </div>
-        </div>
+            <Header />
+            <DayTitles />
+            <div className="grid-container">
+              {this.renderCalendar()}
+            </div>
 
-        <Switch>
-          <Route exact path="/writer/:id" render={props => <Writer {...props} />}/>
-        </Switch>
+            <Switch>
+              <Route exact path="/writer/:id" render={props => <Writer {...props} />}/>
+            </Switch>
+        </div>
       </Router>
     );
   }
