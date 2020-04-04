@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Day from '../components/Day';
 import DayTitles from "../components/DayTitles"
+import '../css/Calendar.scss'
 
 export default class Calendar extends Component {
 
