@@ -7,7 +7,7 @@ export default class Calendar extends Component {
 
     renderCalendar = () => {
         let days = [];
-        for(let i = 1; i < 31; i++) {
+        for(let i = 1; i < 36; i++) {
           days.push(
             <Day key={i} id={i}/>
           )
