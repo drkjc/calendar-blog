@@ -1,3 +1,3 @@
-export function createPost() {
+export function createPost(post) {
     debugger;
 }

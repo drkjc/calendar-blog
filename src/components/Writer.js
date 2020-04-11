@@ -18,14 +18,19 @@ class Writer extends Component {
     }
 
     onSubmit = (event) => {
+        debugger;
         alert(this.state)
-
+        this.props.createPost(this.state);
+        this.setState({
+            title: "",
+            content: ""
+        })
     }
 
     render() {
         return (
             <div className="writer">
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={this.onSubmit} data-id={this.props.match.params.id}>
                     <label>Title</label><button>Post</button><br />
                     <input id="titleField" type="text" name="title" onChange={this.handleChange} /><br /><br />
                     <textarea id="contentField" type="text" name="content" onChange={this.handleChange} />
@@ -41,4 +46,4 @@ const mapStateToProps = state => {
     };
   };
   
-  export default connect(mapStateToProps, { createPost })(Writer);
+export default connect(mapStateToProps, { createPost })(Writer);
