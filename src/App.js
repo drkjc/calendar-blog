@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Calendar from "./containers/Calendar";
 import Header from "./components/Header";
-import Writer from "./components/Writer"
+import Writer from "./containers/Writer"
 import "./css/App.scss";
 
 class App extends Component {
