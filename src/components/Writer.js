@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { createPost } from "../redux/actions/writer";
+import { connect } from "react-redux";
 import '../css/Writer.scss';
 
-
-export default class Writer extends Component {
+class Writer extends Component {
 
     state = {
         title: "",
@@ -18,6 +19,7 @@ export default class Writer extends Component {
 
     onSubmit = (event) => {
         alert(this.state)
+
     }
 
     render() {
@@ -32,3 +34,11 @@ export default class Writer extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+      posts: state.posts,
+    };
+  };
+  
+  export default connect(mapStateToProps, { createPost })(Writer);

@@ -1,8 +1,7 @@
 export default function writerReducer(
     state = {
         posts: []
-}, action
-) {
+}, action) {
     switch (action.type) {
         case "CREATE_POST":
             return {...state};
