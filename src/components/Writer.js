@@ -6,9 +6,11 @@ import '../css/Writer.scss';
 class Writer extends Component {
 
     state = {
+        posts: [this.props.posts],
         title: "",
         content: ""
     }
+
 
     handleChange = (event) => {
         this.setState({
@@ -18,8 +20,6 @@ class Writer extends Component {
     }
 
     onSubmit = (event) => {
-        debugger;
-        alert(this.state)
         this.props.createPost(this.state);
         this.setState({
             title: "",
@@ -41,8 +41,10 @@ class Writer extends Component {
 }
 
 const mapStateToProps = state => {
+    console.log(state.writer, 'map to props')
+
     return {
-      posts: state.posts,
+      posts: state.writer.posts,
     };
   };
   

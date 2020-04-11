@@ -1,3 +1,7 @@
 export function createPost(post) {
-    debugger;
+    console.log(post, "action")
+    return {
+        type: "CREATE_POST",
+        payload: post
+    }
 }
