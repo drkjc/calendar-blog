@@ -7,10 +7,6 @@ import '../css/Writer.scss';
 
 class Writer extends Component {
 
-    renderPosts = () => {
-        debugger;
-    }
-
     render() {
         return (
             <div className="writer">

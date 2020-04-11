@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import uuid from 'react-uuid';
-import { NavLink } from 'react-router-dom';
 
 export default class PostForm extends Component {
 
@@ -16,16 +15,11 @@ export default class PostForm extends Component {
             id: uuid(),
             [event.target.name] : event.target.value
         })
-        console.log(this.state)
     }
 
-    onSubmit = (event) => {
-        event.preventDefault();
+    onSubmit = (e) => {
+        e.preventDefault();
         this.props.createPost(this.state);
-        this.setState({
-            title: "",
-            content: ""
-        })
     }
 
     render() {
