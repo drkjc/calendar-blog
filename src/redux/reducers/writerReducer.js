@@ -4,11 +4,11 @@ export default function writerReducer(
 }, action) {
     switch (action.type) {
         case "CREATE_POST":
-            //debugger;
             return Object.assign(
                 {}, 
                 state, { 
                 posts: [
+                    ...state.posts,
                     action.payload
                 ]
             });

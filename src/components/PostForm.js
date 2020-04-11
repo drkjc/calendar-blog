@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import uuid from 'react-uuid';
+import { NavLink } from 'react-router-dom';
 
 export default class PostForm extends Component {
 
     state = {
+        id: 0,
         title: "",
         content: ""
     }
@@ -10,6 +13,7 @@ export default class PostForm extends Component {
 
     handleChange = (event) => {
         this.setState({
+            id: uuid(),
             [event.target.name] : event.target.value
         })
         console.log(this.state)
