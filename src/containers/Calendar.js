@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import Day from '../components/Day';
 import DayTitles from "../components/DayTitles"
 import uuid from 'react-uuid';
+import { connect } from "react-redux";
+import { getCurrentMonth } from "../redux/actions/calendar";
 import '../css/Calendar.scss'
 
-export default class Calendar extends Component {
+class Calendar extends Component {
 
   getDayAbbreviation = (day) => {
     if (day === "empty") {
@@ -63,7 +65,6 @@ export default class Calendar extends Component {
       result.push(`${date.getDate()}-${names[date.getDay()]}`);
       date.setDate(date.getDate() + 1);
     }
-
     let firstElement = result[0];
     let day = this.getDayAbbreviation(firstElement)
     let startDate = this.daySwitch(day, result);
@@ -104,3 +105,5 @@ export default class Calendar extends Component {
     )
   }
 }
+
+export default connect(null, { getCurrentMonth })(Calendar);
