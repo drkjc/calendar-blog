@@ -18,10 +18,11 @@ export default class Calendar extends Component {
   }
 
   pushEmpties = (month) => {
-    while (month.length < 36) {
+    month = month.flat();
+    while (month.length < 35) {
       month.push("empty")
     }
-    return month.flat();
+    return month;
   }
 
   daySwitch = (day, result) => {
@@ -53,14 +54,15 @@ export default class Calendar extends Component {
 
   getDaysArray = (year, month) => {
     const monthIndex = month - 1
-    const names = Object.freeze(
-       [ 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat' ]);
+    const names = Object.freeze([ 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat' ]);
     const date = new Date(year, monthIndex, 1);
     const result = [];
+
     while (date.getMonth() === monthIndex) {
       result.push(`${date.getDate()}-${names[date.getDay()]}`);
       date.setDate(date.getDate() + 1);
     }
+
     let firstElement = result[0];
     let day = this.getDayAbbreviation(firstElement)
     let startDate = this.daySwitch(day, result);
@@ -71,9 +73,7 @@ export default class Calendar extends Component {
 
   renderCalendar = () => {
     let d = new Date();
-    console.log(d)
     let month = this.getDaysArray(d.getFullYear(), d.getMonth() + 1);
-    console.log(month)
     const days = [];
 
     let i = 1;
