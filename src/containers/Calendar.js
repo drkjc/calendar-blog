@@ -6,18 +6,22 @@ import '../css/Calendar.scss'
 export default class Calendar extends Component {
 
   getDayAbbreviation = (day) => {
-    return day.split("-")[1];
+    if (day === "empty") {
+      return "empty";
+    } else {
+      return day.split("-")[1];
+    }
   }
 
   createEmpties = (n) => {
-    "empty,".repeat(n).split(",").filter(i => i !== "")
+    return "empty,".repeat(n).split(",").filter(i => i !== "")
   }
 
   pushEmpties = (month) => {
     while (month.length < 36) {
       month.push("empty")
     }
-    return month;
+    return month.flat();
   }
 
   daySwitch = (day, result) => {
@@ -61,13 +65,14 @@ export default class Calendar extends Component {
     let day = this.getDayAbbreviation(firstElement)
     let startDate = this.daySwitch(day, result);
     const daysOfMonth = this.pushEmpties(startDate);
+
     return daysOfMonth;
   }
 
   renderCalendar = () => {
     let d = new Date();
     console.log(d)
-    let month = this.getDaysArray(d.getFullYear(), d.getMonth());
+    let month = this.getDaysArray(d.getFullYear(), d.getMonth() + 1);
     console.log(month)
     const days = [];
 
