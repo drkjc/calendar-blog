@@ -8,3 +8,8 @@
 .day:hover {
   box-shadow: 5px 4px 5px 4px black;
 }
+
+.day.no-access {
+  box-shadow: none;
+  background-color: lightgrey;
+}
