@@ -5,7 +5,7 @@ import "../css/Day.scss";
 export default function Day(props) {
   return (
     <Link to={{ pathname: `/writer/${props.id}`}}>
-      <div className="day">{props.dayOfWeek === "empty" ? "empty" : props.calendarId}</div>
+      <div className="day">{props.dayOfWeek === "empty" ? "e" : props.calendarId}</div>
     </Link>
   )
 }
