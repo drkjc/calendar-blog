@@ -3,15 +3,26 @@ header {
     width: 100%;
     height: 100px;
     background-color: aquamarine;
+    display: flex;
+    justify-content: space-between;
 
-    span a {
-        float: left;
+    #home a {
         text-decoration: none;
         font-size: large;
         padding: 35px 80px 40px;
+        display: flex;
     }
 
-    span a:hover{
+    #home a:hover{
         font-size: larger;
+    }
+
+    #nav-buttons {
+        display: flex;
+    }
+
+    #nav-buttons button {
+        width: 75px;
+        margin: 30px 15px 40px;
     }
 }
