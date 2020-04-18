@@ -77,13 +77,21 @@ export default class Calendar extends Component {
     const days = [];
 
     let i = 1;
+    let e = 1;
     month.forEach(day => {
       let dayOfWeek = this.getDayAbbreviation(day);
-      days.push(
-        <Day key={i} id={i} dayOfWeek={dayOfWeek}/>
-      )
-      i++;
-    })
+      if (dayOfWeek === "empty") {
+        days.push(
+          <Day key={e} id={e} dayOfWeek={dayOfWeek} />
+        )
+        e++
+      } else {
+        days.push(
+          <Day key={i} id={i} dayOfWeek={dayOfWeek}/>
+        )
+        i++;
+      }
+    });
         
     return days;
   }
