@@ -5,6 +5,48 @@ import '../css/Calendar.scss'
 
 export default class Calendar extends Component {
 
+  getDayAbbreviation = (day) => {
+    return day.split("-")[1];
+  }
+
+  createEmpties = (n) => {
+    "empty,".repeat(n).split(",").filter(i => i !== "")
+  }
+
+  pushEmpties = (month) => {
+    while (month.length < 36) {
+      month.push("empty")
+    }
+    return month;
+  }
+
+  daySwitch = (day, result) => {
+    switch(day) {
+      case "sun":
+        break;
+      case "mon":
+        result.unshift("empty")
+        break;
+      case "tue":
+        result.unshift(this.createEmpties(2))
+        break;
+      case "wed":
+        result.unshift(this.createEmpties(3))
+        break;
+      case "thu":
+        result.unshift(this.createEmpties(4))
+        break;
+      case "fri":
+        result.unshift(this.createEmpties(5))
+        break;
+      case "sat":
+        result.unshift(this.createEmpties(6))
+        break;
+      default: 
+    }
+    return result;
+  }
+
   getDaysArray = (year, month) => {
     const monthIndex = month - 1
     const names = Object.freeze(
@@ -15,29 +57,38 @@ export default class Calendar extends Component {
       result.push(`${date.getDate()}-${names[date.getDay()]}`);
       date.setDate(date.getDate() + 1);
     }
-    return result;
+    let firstElement = result[0];
+    let day = this.getDayAbbreviation(firstElement)
+    let startDate = this.daySwitch(day, result);
+    const daysOfMonth = this.pushEmpties(startDate);
+    return daysOfMonth;
   }
 
-    renderCalendar = () => {
-        let d = new Date();
-        let month = this.getDaysArray(d.getFullYear(), d.getMonth());
-        //debugger;
-        let days = [];
-        for(let i = 1; i < month.length; i++) {
-          days.push(
-            <Day key={i} id={i}/>
-          )
-        }
+  renderCalendar = () => {
+    let d = new Date();
+    console.log(d)
+    let month = this.getDaysArray(d.getFullYear(), d.getMonth());
+    console.log(month)
+    const days = [];
+
+    let i = 1;
+    month.forEach(day => {
+      let dayOfWeek = this.getDayAbbreviation(day);
+      days.push(
+        <Day key={i} id={i} dayOfWeek={dayOfWeek}/>
+      )
+      i++;
+    })
         
-        return days;
-      }
+    return days;
+  }
     
-    render() {
-        return (
-          <div>
-            <DayTitles />
-            <div className="grid-container">{this.renderCalendar()}</div>
-          </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <DayTitles />
+        <div className="grid-container">{this.renderCalendar()}</div>
+      </div>
+    )
+  }
 }
