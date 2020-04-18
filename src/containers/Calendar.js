@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Day from '../components/Day';
 import DayTitles from "../components/DayTitles"
+import uuid from 'react-uuid';
 import '../css/Calendar.scss'
 
 export default class Calendar extends Component {
@@ -77,17 +78,15 @@ export default class Calendar extends Component {
     const days = [];
 
     let i = 1;
-    let e = 1;
     month.forEach(day => {
       let dayOfWeek = this.getDayAbbreviation(day);
       if (dayOfWeek === "empty") {
         days.push(
-          <Day key={e} id={e} dayOfWeek={dayOfWeek} />
+          <Day key={uuid()} id={uuid()} dayOfWeek={dayOfWeek} />
         )
-        e++
       } else {
         days.push(
-          <Day key={i} id={i} dayOfWeek={dayOfWeek}/>
+          <Day key={i} id={uuid()} calendarId={i} dayOfWeek={dayOfWeek}/>
         )
         i++;
       }
