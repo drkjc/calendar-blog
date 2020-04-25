@@ -4,7 +4,7 @@ import Calendar from "./containers/Calendar";
 import Header from "./components/Header";
 import Writer from "./containers/Writer";
 import { connect } from "react-redux";
-import { getCurrentMonth, getPreviousMonth, getNextMonth } from "./redux/actions/calendar";
+import { getCurrentMonth } from "./redux/actions/calendar";
 import "./css/App.scss";
 
 
@@ -20,17 +20,11 @@ class App extends Component {
     return (
       <Router>
         <div id="app">
-            <Header 
-              getCurrentMonth={this.props.getCurrentMonth} 
-              getPreviousMonth={this.props.getPreviousMonth} 
-              getNextMonth={this.props.getNextMonth}
-              currentMonth={this.props.month} 
-              currentMonthId={this.props.monthId}
-            />
-            <Switch>
-            <Route exact path="/:month" render={props => <Calendar {...props}  /> } /> 
+          <Switch>
+            <Header exact path="/" currentMonth={this.props.month} />
+            <Route exact path="/:month" render={props => <Calendar {...props}  currentMonth={this.props} /> } /> 
             <Route exact path="/writer/:id" render={props => <Writer {...props} />}/>
-            </Switch>
+          </Switch>
         </div>
       </Router>
     );
@@ -40,8 +34,9 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return({
     month: state.calendar.month,
-    monthId: state.calendar.monthId
+    monthId: state.calendar.monthId,
+    loading: state.calendar.loading
   })
 }
 
-export default connect(mapStateToProps, { getCurrentMonth, getPreviousMonth, getNextMonth })(App);
+export default connect(mapStateToProps, { getCurrentMonth })(App);

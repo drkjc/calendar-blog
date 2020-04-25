@@ -1,28 +1,23 @@
 import React, { Component } from 'react';
-import Header from '../components/Header';
+import CalendarHeader from '../components/CalendarHeader';
 import Day from '../components/Day';
 import DayTitles from "../components/DayTitles"
 import uuid from 'react-uuid';
 import { connect } from "react-redux";
-import { getCurrentMonth } from "../redux/actions/calendar";
+import { getCurrentMonth, getPreviousMonth, getNextMonth } from "../redux/actions/calendar";
 import '../css/Calendar.scss'
 
 class Calendar extends Component {
 
-  state = {
-    currentMonth: '',
-    currentMonthId: ''
+  componentDidMount() {
+    debugger;
+    this.props.getCurrentMonth(this.props.currentMonth.monthId)
   }
 
-  // componentDidMount() {
-  //   this.setState({
-  //     currentMonth: this.props.location.monthProps.currentMonth,
-  //     currentMonthId: this.props.location.monthProps.currentMonthId
-  //   })
-  // }
-
   getDayAbbreviation = (day) => {
-    if (day === "empty") {
+    if (day === undefined) {
+      return 'loading'
+    } else if (day === "empty") {
       return "empty";
     } else {
       return day.split("-")[1];
@@ -86,38 +81,50 @@ class Calendar extends Component {
     return daysOfMonth;
   }
 
-  renderCalendar = () => {
-    let d = new Date();
-    let month = this.getDaysArray(d.getFullYear(), this.state.currentMonthId + 1);
-    const days = [];
+  handleLoading = () => {
+    if(this.props.loading) {
+      return <div>Loading...</div>
+    } else {
+      let d = new Date();
+      let month = this.getDaysArray(d.getFullYear(), this.props.monthId + 1);
+      const days = [];
 
-    let i = 1;
-    month.forEach(day => {
-      let dayOfWeek = this.getDayAbbreviation(day);
-      if (dayOfWeek === "empty") {
-        days.push(
-          <Day key={uuid()} id={uuid()} dayOfWeek={dayOfWeek} />
-        )
-      } else {
-        days.push(
-          <Day key={i} id={uuid()} calendarId={i} dayOfWeek={dayOfWeek}/>
-        )
-        i++;
-      }
-    });
-        
-    return days;
+      let i = 1;
+      month.forEach(day => {
+        let dayOfWeek = this.getDayAbbreviation(day);
+        if (dayOfWeek === "empty") {
+          days.push(
+            <Day key={uuid()} id={uuid()} dayOfWeek={dayOfWeek} />
+          )
+        } else {
+          days.push(
+            <Day key={i} id={uuid()} calendarId={i} dayOfWeek={dayOfWeek}/>
+          )
+          i++;
+        }
+      });
+          
+      return days;
+    }
   }
     
   render() {
     return (
       <div>
-        <Header />
+        <CalendarHeader currentMonth={this.props.month}/>
         <DayTitles />
-        <div className="grid-container">{this.renderCalendar()}</div>
+        <div className="grid-container">{this.handleLoading()}</div>
       </div>
     )
   }
 }
 
-export default connect(null, { getCurrentMonth })(Calendar);
+const mapStateToProps = (state) => {
+  return({
+    month: state.calendar.month,
+    monthId: state.calendar.monthId, 
+    loading: state.calendar.loading
+  })
+}
+
+export default connect(mapStateToProps, { getCurrentMonth, getPreviousMonth, getNextMonth })(Calendar);
