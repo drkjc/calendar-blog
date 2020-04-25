@@ -2,7 +2,6 @@ export default function calendarReducer(
     state = {
         month: ""
 }, action) {
-    debugger;
     switch (action.type) {
         case "GET_CURRENT_MONTH":
             return Object.assign(

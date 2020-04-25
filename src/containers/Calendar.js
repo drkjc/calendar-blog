@@ -8,6 +8,18 @@ import '../css/Calendar.scss'
 
 class Calendar extends Component {
 
+  state = {
+    currentMonth: '',
+    currentMonthId: ''
+  }
+
+  componentDidMount() {
+    this.setState({
+      currentMonth: this.props.location.monthProps.currentMonth,
+      currentMonthId: this.props.location.monthProps.currentMonthId
+    })
+  }
+
   getDayAbbreviation = (day) => {
     if (day === "empty") {
       return "empty";
@@ -74,9 +86,8 @@ class Calendar extends Component {
   }
 
   renderCalendar = () => {
-    debugger;
     let d = new Date();
-    let month = this.getDaysArray(d.getFullYear(), d.getMonth() + 1);
+    let month = this.getDaysArray(d.getFullYear(), this.state.currentMonthId + 1);
     const days = [];
 
     let i = 1;

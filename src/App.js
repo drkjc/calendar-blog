@@ -24,10 +24,11 @@ class App extends Component {
               getCurrentMonth={this.props.getCurrentMonth} 
               getPreviousMonth={this.props.getPreviousMonth} 
               getNextMonth={this.props.getNextMonth}
-              currentMonth={this.props} 
+              currentMonth={this.props.month} 
+              currentMonthId={this.props.monthId}
             />
             <Switch>
-            <Route exact path="/:month" render={props => <Calendar {...props} currentMonthId={this.props.monthId}/> } /> 
+            <Route exact path="/:month" render={props => <Calendar {...props}  /> } /> 
             <Route exact path="/writer/:id" render={props => <Writer {...props} />}/>
             </Switch>
         </div>
