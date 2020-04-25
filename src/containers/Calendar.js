@@ -79,7 +79,7 @@ class Calendar extends Component {
   }
 
   handleLoading = () => {
-    if(this.props.loading) {
+    if (this.props.loading) {
       return <div>Loading...</div>
     } else {
       let d = new Date();
@@ -108,7 +108,13 @@ class Calendar extends Component {
   render() {
     return (
       <div>
-        <CalendarHeader currentMonth={this.props.month}/>
+        <CalendarHeader 
+          currentMonth={this.props.month} 
+          currentMonthId={this.props.monthId}
+          getCurrentMonth={this.props.getCurrentMonth} 
+          getPreviousMonth={this.props.getPreviousMonth}
+          getNextMonth={this.props.getNextMonth} 
+          />
         <DayTitles />
         <div className="grid-container">{this.handleLoading()}</div>
       </div>
