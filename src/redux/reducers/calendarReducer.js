@@ -9,6 +9,7 @@ export default function calendarReducer(
                 state, { 
                 month: action.payload
             });
+        case "GET_PREVIOUS_MONTH"
         default: 
             return state;
     }
