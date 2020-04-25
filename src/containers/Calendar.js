@@ -74,6 +74,8 @@ class Calendar extends Component {
   }
 
   renderCalendar = () => {
+    debugger;
+    let some = this.props.getCurrentMonth(this.props.match.params.month)
     let d = new Date();
     let month = this.getDaysArray(d.getFullYear(), d.getMonth() + 1);
     const days = [];

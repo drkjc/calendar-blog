@@ -17,6 +17,6 @@ export function getCurrentMonth(month) {
     console.log(MONTHS[month])
     return {
         type: "GET_CURRENT_MONTH",
-        payload: MONTHS[month]
+        payload: month
     }
 }
