@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from '../components/Header';
 import Day from '../components/Day';
 import DayTitles from "../components/DayTitles"
 import uuid from 'react-uuid';
@@ -13,12 +14,12 @@ class Calendar extends Component {
     currentMonthId: ''
   }
 
-  componentDidMount() {
-    this.setState({
-      currentMonth: this.props.location.monthProps.currentMonth,
-      currentMonthId: this.props.location.monthProps.currentMonthId
-    })
-  }
+  // componentDidMount() {
+  //   this.setState({
+  //     currentMonth: this.props.location.monthProps.currentMonth,
+  //     currentMonthId: this.props.location.monthProps.currentMonthId
+  //   })
+  // }
 
   getDayAbbreviation = (day) => {
     if (day === "empty") {
@@ -111,6 +112,7 @@ class Calendar extends Component {
   render() {
     return (
       <div>
+        <Header />
         <DayTitles />
         <div className="grid-container">{this.renderCalendar()}</div>
       </div>
