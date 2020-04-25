@@ -12,7 +12,6 @@ class App extends Component {
 
   componentDidMount() {
     let d = new Date();
-    // let month = d.toLocaleString('default', { month: 'long'});
     let month = d.getMonth();
     this.props.getCurrentMonth(month);
   }
@@ -25,10 +24,10 @@ class App extends Component {
               getCurrentMonth={this.props.getCurrentMonth} 
               getPreviousMonth={this.props.getPreviousMonth} 
               getNextMonth={this.props.getNextMonth}
-              currentMonth={this.props.month} 
+              currentMonth={this.props} 
             />
             <Switch>
-            <Route exact path="/:month" render={props => <Calendar {...props} currentMonth={this.props.month}/> } /> 
+            <Route exact path="/:month" render={props => <Calendar {...props} currentMonthId={this.props.monthId}/> } /> 
             <Route exact path="/writer/:id" render={props => <Writer {...props} />}/>
             </Switch>
         </div>
@@ -38,9 +37,9 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  debugger;
   return({
-    month: state.calendar.month
+    month: state.calendar.month,
+    monthId: state.calendar.monthId
   })
 }
 

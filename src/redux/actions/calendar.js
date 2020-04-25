@@ -21,8 +21,6 @@ export function getCurrentMonth(month) {
 }
 
 export function getPreviousMonth(month) {
-    let indexOfCurrentMonth = MONTHS.indexOf(month)
-    let previousMonth = MONTHS[indexOfCurrentMonth - 1]
     return {
         type: "GET_PREVIOUS_MONTH",
         payload: { month: MONTHS[month - 1], monthId: month - 1 }
@@ -30,8 +28,6 @@ export function getPreviousMonth(month) {
 }
 
 export function getNextMonth(month) {
-    let indexOfCurrentMonth = MONTHS.indexOf(month)
-    let nextMonth = MONTHS[indexOfCurrentMonth + 1]
     return {
         type: "GET_PREVIOUS_MONTH",
         payload: { month: MONTHS[month + 1], monthId: month + 1 }
