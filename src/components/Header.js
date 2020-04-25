@@ -9,8 +9,8 @@ export default function Header(props) {
             <span id="home"><Link to={{ pathname: `/${props.currentMonth}`, currentMonth: props.currentMonth }}>Calendar</Link></span>
             <h1>{props.currentMonth}</h1>
             <div id="nav-buttons">
-                <button>Left</button>
-                <button>Right</button>
+                <button onClick={event => props.getPreviousMonth(props.currentMonth)}>Left</button>
+                <button onClick={event => props.getNextMonth(props.currentMonth)}>Right</button>
             </div>
         </header>
     )
