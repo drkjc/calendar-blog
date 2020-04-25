@@ -10,14 +10,11 @@ import '../css/Calendar.scss'
 class Calendar extends Component {
 
   componentDidMount() {
-    debugger;
     this.props.getCurrentMonth(this.props.currentMonth.monthId)
   }
 
   getDayAbbreviation = (day) => {
-    if (day === undefined) {
-      return 'loading'
-    } else if (day === "empty") {
+   if (day === "empty") {
       return "empty";
     } else {
       return day.split("-")[1];
