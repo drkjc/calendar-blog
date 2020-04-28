@@ -109,6 +109,7 @@ class Calendar extends Component {
     return (
       <div>
         <CalendarHeader 
+          year={this.props.year}
           currentMonth={this.props.month} 
           currentMonthId={this.props.monthId}
           getCurrentMonth={this.props.getCurrentMonth} 
@@ -126,6 +127,7 @@ const mapStateToProps = (state) => {
   return({
     month: state.calendar.month,
     monthId: state.calendar.monthId, 
+    year: state.calendar.year,
     loading: state.calendar.loading
   })
 }

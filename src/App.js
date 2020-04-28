@@ -13,7 +13,8 @@ class App extends Component {
   componentDidMount() {
     let d = new Date();
     let month = d.getMonth();
-    this.props.getCurrentMonth(month);
+    let year = d.getFullYear();
+    this.props.getCurrentMonth(month, year);
   }
 
   render() {
@@ -35,6 +36,7 @@ const mapStateToProps = (state) => {
   return({
     month: state.calendar.month,
     monthId: state.calendar.monthId,
+    year: state.calendar.year,
     loading: state.calendar.loading
   })
 }

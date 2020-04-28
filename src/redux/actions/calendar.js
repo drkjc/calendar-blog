@@ -13,10 +13,11 @@ const MONTHS = [
 'December'
 ]
 
-export function getCurrentMonth(month) {
+export function getCurrentMonth(month, year) {
+    console.log(year, 'action')
     return {
         type: "GET_CURRENT_MONTH",
-        payload: { month: MONTHS[month], monthId: month }
+        payload: { month: MONTHS[month], monthId: month, year: year }
     }
 }
 
