@@ -5,7 +5,7 @@ import '../css/Header.scss';
 export default function Header(props) {
     return (
         <header>
-            <span id="home"><Link to={{ pathname: `/${props.currentMonth}`}}>Calendar</Link></span>
+            <span id="home"><Link to={{ pathname: `/${props.currentYear}`}}>Calendar</Link></span>
         </header>
     )
 }

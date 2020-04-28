@@ -9,11 +9,24 @@ import '../css/Calendar.scss'
 
 class Calendar extends Component {
 
+  state = {
+    redirect: false
+  }
+
   componentDidMount() {
-    this.props.getCurrentMonth(this.props.currentMonth.monthId)
+    this.props.getCurrentMonth(this.props.currentMonth.monthId, this.props.year)
+  }
+
+  renderRedirect = () => {
+
   }
 
   getDayAbbreviation = (day) => {
+
+    if(day === undefined) {
+      return;
+    }
+
    if (day === "empty") {
       return "empty";
     } else {
@@ -82,10 +95,9 @@ class Calendar extends Component {
     if (this.props.loading) {
       return <div>Loading...</div>
     } else {
-      let d = new Date();
       let month = this.getDaysArray(this.props.year, this.props.monthId + 1);
       const days = [];
-
+      
       let i = 1;
       month.forEach(day => {
         let dayOfWeek = this.getDayAbbreviation(day);
@@ -106,6 +118,7 @@ class Calendar extends Component {
   }
     
   render() {
+    console.log(this.props, 'cal render')
     return (
       <div>
         <CalendarHeader 
@@ -124,6 +137,7 @@ class Calendar extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state, 'cal map')
   return({
     month: state.calendar.month,
     monthId: state.calendar.monthId, 

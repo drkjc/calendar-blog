@@ -14,6 +14,7 @@ class App extends Component {
     let d = new Date();
     let month = d.getMonth();
     let year = d.getFullYear();
+    console.log(year, 'app mount')
     this.props.getCurrentMonth(month, year);
   }
 
@@ -22,8 +23,8 @@ class App extends Component {
       <Router>
         <div id="app">
           <Switch>
-            <Header exact path="/" currentMonth={this.props.month} />
-            <Route exact path="/:month" render={props => <Calendar {...props}  currentMonth={this.props} /> } /> 
+            <Header exact path="/" currentYear={this.props.year} />
+            <Route exact path="/:year" render={props => <Calendar {...props}  currentMonth={this.props} /> } /> 
             <Route exact path="/writer/:id" render={props => <Writer {...props} />}/>
           </Switch>
         </div>
@@ -33,8 +34,9 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state, 'app')
   return({
-    month: state.calendar.month,
+    //month: state.calendar.month,
     monthId: state.calendar.monthId,
     year: state.calendar.year,
     loading: state.calendar.loading
