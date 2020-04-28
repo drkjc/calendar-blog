@@ -34,7 +34,6 @@ function nextMonth(monthId) {
 }
 
 export default function CalendarHeader(props) {
-    console.log(props, 'cal header')
     return (
         <header>
             <span id="home"><Link to={{ pathname: '/'}}>Home</Link></span>

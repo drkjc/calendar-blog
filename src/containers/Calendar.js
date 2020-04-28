@@ -137,6 +137,7 @@ class Calendar extends Component {
 const mapStateToProps = (state) => {
   console.log(state, 'cal map')
   return({
+    posts: state.writer.posts,
     month: state.calendar.month,
     monthId: state.calendar.monthId, 
     year: state.calendar.year,

@@ -5,7 +5,6 @@ export default function calendarReducer(
         year: 0,
         loading: true
 }, action) {
-    console.log(action, 'reducer')
     switch (action.type) {
         case "LOADING":
             return Object.assign(

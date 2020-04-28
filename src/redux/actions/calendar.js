@@ -14,7 +14,6 @@ const MONTHS = [
 ]
 
 export function getCurrentMonth(month, year) {
-    console.log(year, 'action')
     return {
         type: "GET_CURRENT_MONTH",
         payload: { month: MONTHS[month], monthId: month, year: year }

@@ -7,7 +7,11 @@ export default class PostForm extends Component {
     state = {
         id: 0,
         title: "",
-        content: ""
+        content: "",
+    }
+
+    wordCount = () => {
+        return this.state.content.split(' ').length - 1
     }
 
 
@@ -29,6 +33,7 @@ export default class PostForm extends Component {
                 <Header />
                 <form onSubmit={this.onSubmit} data-id={this.props.id} id="writerForm">
                     <button id="publishBtn">Publish</button><br />
+                    <label>Word Count: {this.wordCount()}</label><br />
                     <input className="writerInputForm" id="titleField" type="text" name="title" placeholder="Title" onChange={this.handleChange} /><br /><br />
                     <textarea className="writerInputForm" id="contentField" type="text" name="content" placeholder="Take notes..." onChange={this.handleChange} />
                 </form>

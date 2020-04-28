@@ -6,7 +6,12 @@ import PostList from '../components/PostList'
 import '../css/Writer.scss';
 
 class Writer extends Component {
+
+    componentDidUpdate(prevProps) {
+        //debugger;
+    }
     render() {
+        console.log(this.props, 'writ comp')
         return (
             <div className="writer">
                 <PostList posts={this.props.posts} />
