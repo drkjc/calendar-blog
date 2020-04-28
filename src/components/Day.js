@@ -12,13 +12,13 @@ function renderDays(props) {
     return <div className="day no-access"></div>
   } else if ((todayName === props.dayOfWeek) && (props.calendarId === todayNum) && (props.monthId === todayMonth )) {
     return (
-      <Link to={{ pathname: `/writer/${props.id}`, monthId: `${todayMonth}`}}>
+      <Link to={{ pathname: `/writer/${props.id}`, month: props}}>
         <div className="day today">{props.calendarId}</div>
       </Link>
     )
   } else {
     return (
-      <Link to={{ pathname: `/writer/${props.id}`, monthId: `${todayMonth}`}}>
+      <Link to={{ pathname: `/writer/${props.id}`, month: props}}>
         <div className="day">{props.calendarId}</div>
       </Link>
     )

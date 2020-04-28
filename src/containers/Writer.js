@@ -6,16 +6,11 @@ import PostList from '../components/PostList'
 import '../css/Writer.scss';
 
 class Writer extends Component {
-
-    componentDidUpdate(prevProps) {
-        //debugger;
-    }
     render() {
-        console.log(this.props, 'writ comp')
         return (
             <div className="writer">
                 <PostList posts={this.props.posts} />
-                <PostForm createPost={this.props.createPost} id={this.props.match.params.id}/>
+                <PostForm createPost={this.props.createPost} id={this.props.match.params.id} month={this.props.location.month}/>
             </div>
         )
     }

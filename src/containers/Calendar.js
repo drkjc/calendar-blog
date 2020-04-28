@@ -102,11 +102,11 @@ class Calendar extends Component {
         let dayOfWeek = this.getDayAbbreviation(day);
         if (dayOfWeek === "empty") {
           days.push(
-            <Day key={uuid()} id={uuid()} dayOfWeek={dayOfWeek} monthId={this.props.monthId} />
+            <Day key={uuid()} id={uuid()} dayOfWeek={dayOfWeek} month={this.props} />
           )
         } else {
           days.push(
-            <Day key={i} id={uuid()} calendarId={i} dayOfWeek={dayOfWeek} monthId={this.props.monthId}/>
+            <Day key={i} id={uuid()} calendarId={i} dayOfWeek={dayOfWeek} posts={this.props.posts} monthId={this.props}/>
           )
           i++;
         }
