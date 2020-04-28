@@ -28,9 +28,9 @@ export default class PostForm extends Component {
             <>
                 <Header />
                 <form onSubmit={this.onSubmit} data-id={this.props.id} id="writerForm">
-                    <label>Title</label><button>Post</button><br />
-                    <input id="titleField" type="text" name="title" onChange={this.handleChange} /><br /><br />
-                    <textarea id="contentField" type="text" name="content" onChange={this.handleChange} />
+                    <button id="publishBtn">Publish</button><br />
+                    <input className="writerInputForm" id="titleField" type="text" name="title" placeholder="Title" onChange={this.handleChange} /><br /><br />
+                    <textarea className="writerInputForm" id="contentField" type="text" name="content" placeholder="Take notes..." onChange={this.handleChange} />
                 </form>
             </>
         )
