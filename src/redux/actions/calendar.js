@@ -21,16 +21,20 @@ export function getCurrentMonth(month, year) {
     }
 }
 
-export function getPreviousMonth(month) {
+export function getPreviousMonth(month, year) {
+    if (month === 0) {
+        month = 12
+        year--
+    }
     return {
         type: "GET_PREVIOUS_MONTH",
-        payload: { month: MONTHS[month - 1], monthId: month - 1 }
+        payload: { month: MONTHS[month - 1], monthId: month - 1, year: year }
     }
 }
 
-export function getNextMonth(month) {
+export function getNextMonth(month, year) {
     return {
         type: "GET_PREVIOUS_MONTH",
-        payload: { month: MONTHS[month + 1], monthId: month + 1 }
+        payload: { month: MONTHS[month + 1], monthId: month + 1, year: year }
     }
 }

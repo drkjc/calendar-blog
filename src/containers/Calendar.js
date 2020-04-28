@@ -83,7 +83,7 @@ class Calendar extends Component {
       return <div>Loading...</div>
     } else {
       let d = new Date();
-      let month = this.getDaysArray(d.getFullYear(), this.props.monthId + 1);
+      let month = this.getDaysArray(this.props.year, this.props.monthId + 1);
       const days = [];
 
       let i = 1;

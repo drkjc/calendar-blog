@@ -28,7 +28,8 @@ export default function calendarReducer(
                 {},
                 state, {
                     month: action.payload.month,
-                    monthId: action.payload.monthId
+                    monthId: action.payload.monthId,
+                    year: action.payload.year
                 });
         case "GET_NEXT_MONTH":
             return Object.assign(
