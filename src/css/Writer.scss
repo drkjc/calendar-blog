@@ -1,6 +1,5 @@
 .writer {
     position: relative;
-    top: 150px;
 }
 
 #titleField {
@@ -14,5 +13,10 @@
     width: 50rem;
     font-size: 32px;
     height: 60rem;
+}
+
+#writerForm {
+    top: 120px;
+    position: relative;
 }
 

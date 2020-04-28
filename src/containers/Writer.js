@@ -6,7 +6,6 @@ import PostList from '../components/PostList'
 import '../css/Writer.scss';
 
 class Writer extends Component {
-
     render() {
         return (
             <div className="writer">
