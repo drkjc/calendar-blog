@@ -33,6 +33,10 @@ export function getPreviousMonth(month, year) {
 }
 
 export function getNextMonth(month, year) {
+    if(month === 11) {
+        month = -1 
+        year++
+    }
     return {
         type: "GET_PREVIOUS_MONTH",
         payload: { month: MONTHS[month + 1], monthId: month + 1, year: year }

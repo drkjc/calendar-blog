@@ -36,7 +36,8 @@ export default function calendarReducer(
                 {},
                 state, {
                     month: action.payload.month,
-                    monthId: action.payload.monthId
+                    monthId: action.payload.monthId,
+                    year: action.payload.year
                 });
         default: 
             return state;
