@@ -9,16 +9,15 @@ import '../css/Calendar.scss'
 
 class Calendar extends Component {
 
-  state = {
-    redirect: false
-  }
-
   componentDidMount() {
     this.props.getCurrentMonth(this.props.currentMonth.monthId, this.props.year)
+    this.setState({currentYear: this.props.year})
   }
 
-  renderRedirect = () => {
-
+  componentDidUpdate(prevProps) {
+    if(this.props.year !== prevProps.year) {
+      return this.props.history.push(`/${this.props.year}`)
+    }
   }
 
   getDayAbbreviation = (day) => {
@@ -118,7 +117,6 @@ class Calendar extends Component {
   }
     
   render() {
-    console.log(this.props, 'cal render')
     return (
       <div>
         <CalendarHeader 
