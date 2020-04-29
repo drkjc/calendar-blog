@@ -29,29 +29,22 @@ export default class PostForm extends Component {
         return this.state.content.split(' ').length - 1
     }
 
-    setMonth = () => {
-        this.setState({
-            month: {
-                dayId: this.props.month.calendarId,
-                monthId: this.props.month.monthId.currentMonth.monthId,
-                year: this.props.month.monthId.currentMonth.year
-            }
-
-        })
-    }
-
 
     handleChange = (event) => {
         this.setState({
             id: uuid(),
             [event.target.name] : event.target.value,
+            month: {
+                dayId: this.props.month.calendarId,
+                monthId: this.props.month.monthId.currentMonth.monthId,
+                year: this.props.month.monthId.currentMonth.year
+            }
         })
     }
 
 
     onSubmit = (e) => {
         e.preventDefault();
-        this.setMonth();
         this.props.createPost(this.state);
         this.setRedirect();
     }
