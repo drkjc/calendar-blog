@@ -39,9 +39,10 @@ class Calendar extends Component {
 
   pushEmpties = (month) => {
     month = month.flat();
-    while (month.length < 35) {
+    while (month.length < 42) {
       month.push("empty")
     }
+    
     return month;
   }
 
@@ -86,7 +87,7 @@ class Calendar extends Component {
     let day = this.getDayAbbreviation(firstElement)
     let startDate = this.daySwitch(day, result);
     const daysOfMonth = this.pushEmpties(startDate);
-
+ 
     return daysOfMonth;
   }
 
