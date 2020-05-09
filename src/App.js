@@ -16,7 +16,7 @@ class App extends Component {
     let d = new Date();
     let month = d.getMonth();
     let year = d.getFullYear();
-    // getCurrentMonth returns current month name, array position, and current year and passes to calendar component
+    // getCurrentMonth returns current month name, array position, and current year to be used in calendar link
     this.props.getCurrentMonth(month, year);
   }
 

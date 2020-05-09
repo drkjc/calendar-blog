@@ -9,6 +9,7 @@ import '../css/Calendar.scss'
 
 class Calendar extends Component {
 
+  // 
   componentDidMount() {
     this.props.getCurrentMonth(this.props.currentMonth.monthId, this.props.year)
     this.setState({currentYear: this.props.year})
