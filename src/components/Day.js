@@ -24,7 +24,7 @@ function renderDays(props) {
 
   if (props.dayOfWeek === "empty") {
     return <div className="day no-access"></div>
-  } else if ((todayName === props.dayOfWeek) && (props.calendarId === todayNum) && (props.monthId === todayMonth )) {
+  } else if ((todayName === props.dayOfWeek) && (props.calendarId === todayNum) && (props.monthId.monthId === todayMonth )) {
     return (
       <>
         <Link to={{ pathname: `/writer/${props.id}`, month: props}}>
