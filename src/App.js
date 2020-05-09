@@ -10,10 +10,13 @@ import "./css/App.scss";
 
 class App extends Component {
 
+
+  // get todays date when app first loads
   componentDidMount() {
     let d = new Date();
     let month = d.getMonth();
     let year = d.getFullYear();
+    // getCurrentMonth returns current month name, array position, and current year and passes to calendar component
     this.props.getCurrentMonth(month, year);
   }
 
@@ -33,8 +36,8 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
+  // state returned from GET_CURRENT_MONTH reducer switch
   return({
-    //month: state.calendar.month,
     monthId: state.calendar.monthId,
     year: state.calendar.year,
     loading: state.calendar.loading
