@@ -6,10 +6,16 @@
 
 #slideMenu {
   z-index: 1;
-  position: absolute;
-  display: none;
+  position: fixed;
   top: 100px;
-  width: 20rem;
+  width: 0;
   height: 30rem;
-  background-color: white;
+  background-color: black;
+  color: white;
+  transition: 0.5s;
+}
+
+#slideMenu.visible {
+  transition: 0.5s;
+  width: 20rem;
 }

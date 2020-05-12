@@ -36,11 +36,27 @@ function nextMonth(monthId) {
     }
 }
 
+function displaySlideMenu() {
+
+    let menu = document.getElementById("slideMenu")
+
+    if(menu.style.visibility === "hidden") {
+        menu.style.visibility = "visible";
+        menu.classList.add("visible");
+    } else {
+        menu.style.visibility = "hidden";
+        menu.classList.remove("visible")
+    }
+}
+
 export default function CalendarHeader(props) {
+
+    
+
     return (
         <header>
             {/* <span id="home"><Link to={{ pathname: '/'}}>Home</Link></span> */}
-            <div id="hamburger-nav"><FontAwesomeIcon icon={faBars} /></div>
+            <div id="hamburger-nav"  onClick={displaySlideMenu}><FontAwesomeIcon icon={faBars} /></div>
             <h1>{props.currentMonth} | {props.year}</h1>
             <div id="nav-buttons">
                 <button onClick={event => props.getPreviousMonth(props.currentMonthId, props.year)}>{lastMonth(props.currentMonthId)}</button>
