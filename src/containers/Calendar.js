@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CalendarHeader from '../components/CalendarHeader';
+import SlideMenu from '../components/SlideMenu';
 import Day from '../components/Day';
 import DayTitles from "../components/DayTitles"
 import uuid from 'react-uuid';
@@ -151,7 +152,8 @@ class Calendar extends Component {
           getCurrentMonth={this.props.getCurrentMonth} 
           getPreviousMonth={this.props.getPreviousMonth}
           getNextMonth={this.props.getNextMonth} 
-          />
+        />
+        <SlideMenu />
         <DayTitles />
         <div className="grid-container">{this.handleLoading()}</div>
       </div>

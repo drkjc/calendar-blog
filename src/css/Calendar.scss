@@ -3,3 +3,13 @@
     grid-template-columns: auto auto auto auto auto auto auto;
     margin: 150px 25px;
   }
+
+#slideMenu {
+  z-index: 1;
+  position: absolute;
+  display: none;
+  top: 100px;
+  width: 20rem;
+  height: 30rem;
+  background-color: white;
+}
