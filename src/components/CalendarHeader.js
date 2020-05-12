@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 import '../css/Header.scss';
+import '../css/CalendarHeader.scss';
 
 const MONTHS = [
     'January', 
@@ -36,12 +39,8 @@ function nextMonth(monthId) {
 export default function CalendarHeader(props) {
     return (
         <header>
-            <div id="left-nav">
-                <span id="home"><Link to={{ pathname: '/'}}>Home</Link></span>
-                <div id="hamburger-nav">
-                    
-                </div>
-            </div>
+            {/* <span id="home"><Link to={{ pathname: '/'}}>Home</Link></span> */}
+            <div id="hamburger-nav"><FontAwesomeIcon icon={faBars} /></div>
             <h1>{props.currentMonth} | {props.year}</h1>
             <div id="nav-buttons">
                 <button onClick={event => props.getPreviousMonth(props.currentMonthId, props.year)}>{lastMonth(props.currentMonthId)}</button>
