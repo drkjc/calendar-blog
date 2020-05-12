@@ -36,7 +36,12 @@ function nextMonth(monthId) {
 export default function CalendarHeader(props) {
     return (
         <header>
-            <span id="home"><Link to={{ pathname: '/'}}>Home</Link></span>
+            <div id="left-nav">
+                <span id="home"><Link to={{ pathname: '/'}}>Home</Link></span>
+                <div id="hamburger-nav">
+                    
+                </div>
+            </div>
             <h1>{props.currentMonth} | {props.year}</h1>
             <div id="nav-buttons">
                 <button onClick={event => props.getPreviousMonth(props.currentMonthId, props.year)}>{lastMonth(props.currentMonthId)}</button>
