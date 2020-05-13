@@ -4,17 +4,14 @@ import "../css/Day.scss";
 
 function filterPosts(props, id) {
   if(id) {
+    // debugger;
     let numPosts = props.posts.filter(p => p.month.dayId === id)
-    return <span>{numPosts.length} post{numPosts > 1 ? "s" : ""}</span>
-  }
-}
-
-function renderPosts(props, id) {
-  if(filterPosts(props, id)) {
-    // return filterPosts(props, id).map(p => {
-    //   return <span>{p.title}</span>
-    // })
-    return 
+    console.log(numPosts, 'filter posts')
+    if(numPosts.length === 0) {
+      return
+    } else {
+      return <span>{numPosts.length} post{numPosts.length > 1 ? "s" : ""}</span>
+    }
   }
 }
 
