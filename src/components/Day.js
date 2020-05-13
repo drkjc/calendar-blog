@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../css/Day.scss";
 
+// checks what day, month, and year the post was created
 function confirmDate(p, id, props) {
   return (
     p.month.dayId === id &&
@@ -10,14 +11,27 @@ function confirmDate(p, id, props) {
   )
 }
 
+function displaySlideMenu() {
+
+  let menu = document.getElementById("slideMenu")
+
+  if(menu.style.visibility === "hidden") {
+      menu.style.visibility = "visible";
+      menu.classList.add("visible");
+  } else {
+      menu.style.visibility = "hidden";
+      menu.classList.remove("visible")
+  }
+}
+
+
 function filterPosts(props, id) {
   if(id) {
     let numPosts = props.posts.filter(p => confirmDate(p, id, props));
-    console.log(numPosts, 'filter posts');
     if(numPosts.length === 0) {
       return
     } else {
-      return <span>{numPosts.length} post{numPosts.length > 1 ? "s" : ""}</span>
+      return <span onClick={displaySlideMenu}>{numPosts.length} post{numPosts.length > 1 ? "s" : ""}</span>
     }
   }
 }
@@ -34,10 +48,10 @@ function renderDays(props) {
     return (
       <>
         <div className="day today">
+          <h1>{props.calendarId}</h1>
           <Link to={{ pathname: `/writer/${props.id}`, month: props}}>
             Create a post
           </Link>
-          {props.calendarId}
           {filterPosts(props, props.calendarId)}
         </div>
       </>
@@ -45,11 +59,11 @@ function renderDays(props) {
   } else {
     return (
       <>
-        <div className="day">
+        <div className="day" >
+          <h1>{props.calendarId}</h1>
           <Link to={{ pathname: `/writer/${props.id}`, month: props}}>
             Create a post
           </Link>
-          {props.calendarId}
           {filterPosts(props, props.calendarId)}
         </div>
       </>
