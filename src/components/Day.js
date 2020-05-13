@@ -2,9 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../css/Day.scss";
 
+function confirmDate(p, id, props) {
+  return (
+    p.month.dayId === id &&
+    p.month.monthName === props.monthId.month &&
+    p.month.year === props.monthId.year
+  )
+}
+
 function filterPosts(props, id) {
   if(id) {
-    let numPosts = props.posts.filter(p => p.month.dayId === id && p.month.monthName === props.monthId.month);
+    let numPosts = props.posts.filter(p => confirmDate(p, id, props));
     console.log(numPosts, 'filter posts');
     if(numPosts.length === 0) {
       return
