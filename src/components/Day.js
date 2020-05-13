@@ -4,9 +4,8 @@ import "../css/Day.scss";
 
 function filterPosts(props, id) {
   if(id) {
-    // debugger;
-    let numPosts = props.posts.filter(p => p.month.dayId === id)
-    console.log(numPosts, 'filter posts')
+    let numPosts = props.posts.filter(p => p.month.dayId === id && p.month.monthName === props.monthId.month);
+    console.log(numPosts, 'filter posts');
     if(numPosts.length === 0) {
       return
     } else {

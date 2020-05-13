@@ -10,10 +10,11 @@ import '../css/Calendar.scss'
 
 class Calendar extends Component {
 
-  // componentDidMount() {
-  //   this.props.getCurrentMonth(this.props.currentMonth.monthId, this.props.year)
-  //   this.setState({currentYear: this.props.year})
-  // }
+  componentDidMount() {
+    //debugger;
+    // this.props.getCurrentMonth(this.props.currentMonth.monthId, this.props.year)
+    // this.setState({currentYear: this.props.year})
+  }
 
   componentDidUpdate(prevProps) {
     // get new month and push to calendar route

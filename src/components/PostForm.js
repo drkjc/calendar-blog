@@ -37,7 +37,8 @@ export default class PostForm extends Component {
             month: {
                 dayId: this.props.month.calendarId,
                 monthId: this.props.month.monthId.currentMonth.monthId,
-                year: this.props.month.monthId.currentMonth.year
+                year: this.props.month.monthId.currentMonth.year,
+                monthName: this.props.month.monthId.month
             }
         })
     }
