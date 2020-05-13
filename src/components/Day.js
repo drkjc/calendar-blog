@@ -29,23 +29,25 @@ function renderDays(props) {
   } else if ((todayName === props.dayOfWeek) && (props.calendarId === todayNum) && (props.monthId.monthId === todayMonth )) {
     return (
       <>
-        <Link to={{ pathname: `/writer/${props.id}`, month: props}}>
-          <div className="day today">
-            {props.calendarId}<br />
-            {filterPosts(props, props.calendarId)}
-          </div>
-        </Link>
+        <div className="day today">
+          <Link to={{ pathname: `/writer/${props.id}`, month: props}}>
+            Create a post
+          </Link>
+          {props.calendarId}
+          {filterPosts(props, props.calendarId)}
+        </div>
       </>
     )
   } else {
     return (
       <>
-        <Link to={{ pathname: `/writer/${props.id}`, month: props}}>
-          <div className="day">
-            {props.calendarId}<br />
-            {filterPosts(props, props.calendarId)}
-          </div>
-        </Link>
+        <div className="day">
+          <Link to={{ pathname: `/writer/${props.id}`, month: props}}>
+            Create a post
+          </Link>
+          {props.calendarId}
+          {filterPosts(props, props.calendarId)}
+        </div>
       </>
     )
   }

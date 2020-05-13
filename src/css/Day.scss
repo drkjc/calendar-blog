@@ -1,4 +1,6 @@
 .day {
+  display: flex;
+  flex-direction: column;
   height: 100px;
   padding: 75px;
   text-align: center;
